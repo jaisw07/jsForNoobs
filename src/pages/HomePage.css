@@ -81,6 +81,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 50px;
+    margin-top: 2.5rem;
 }
 
 .song-container,
@@ -302,4 +303,24 @@
     width: 100%;
     height: 10px;
     margin-bottom: 0.5rem;
+}
+
+.playlist{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 30rem;
+    height: 79.3%;
+    gap: 2rem;
+    padding: 5rem;
+    background-color: var(--main-body-bg);
+    position: absolute;
+    transform: translateX(100%);
+    transition: all .5s;
+    top: 6rem; right: 0;
+}
+
+.playlist .songTile {
+    color: var(--primary-text);
 }
