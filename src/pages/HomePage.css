@@ -233,19 +233,36 @@
 }
 
 .playbar .progress-bar {
-    width: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    /* width: 500px;
     height: 10px;
     border-radius: 5px;
-    background-color: var(--grey);
+    background-color: var(--grey); */
 }
 
-.playbar .progress-bar .progress {
-    width: 0%;
+.playbar .progress-bar .currentTime{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--primary-text);
+}
+
+.playbar .progress-bar .totalTime{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--primary-text);
+}
+
+.playbar .progress-bar .slider {
+    width: 500px;
     height: 10px;
     max-width: 100%;
     border-radius: 5px;
     background-color: var(--white);
-    animation: musicProgress 30s linear forwards;
 }
 
 .playbar .controls {
@@ -292,27 +309,4 @@
     max-width: 100%;
     border-radius: 5px;
     background-color: var(--white);
-}
-
-
-@keyframes musicProgress {
-    0% {
-        width: 0%;
-    }
-
-    25% {
-        width: 25%;
-    }
-
-    50% {
-        width: 50%;
-    }
-
-    75% {
-        width: 75%;
-    }
-
-    100% {
-        width: 100%;
-    }
 }
