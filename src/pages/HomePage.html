@@ -37,6 +37,7 @@
 
     <link rel="stylesheet" href="HomePage.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="../modular_styles/profileStyles.css" media="print" onload="this.media='all'">
+    <script src="../scripts/music.js" defer></script>
 </head>
 
 <body>
@@ -218,12 +219,12 @@
     <footer class="player">
         <div class="player-albuminfo">
             <div class="player-songcover">
-                <img src="../assets/home/Album Cover.png" alt="Player Album Cover" width="75px" height="75px">
+                <img id = "albumArt" src="../assets/home/Album Cover.png" alt="Player Album Cover" width="75px" height="75px">
             </div>
 
             <div class="player-songdetails font-inter" style="font-weight: 500;">
-                <div class="player-songname">Main Yahaan Hoon</div>
-                <div class="player-artistname">Artist</div>
+                <div id = "songName" class="player-songname">Main Yahaan Hoon</div>
+                <div id = "songArtist" class="player-artistname">Artist</div>
             </div>
 
             <div class="like-btn">
@@ -234,29 +235,28 @@
 
         <div class="playbar">
             <div class="progress-bar">
-                <div class="currentTime font-inter">0:00</div>
-                <input type="range" class="slider" min = "0" max = "100" value = "0">
-                <div class="totalTime font-inter">2:40</div>
+                <div id = "currentTime" class="currentTime font-inter">0:00</div>
+                <input type="range" id = "seekBar" class="slider" min = "0" max = "100" value = "0">
+                <div id = "totalTime" class="totalTime font-inter">2:40</div>
             </div>
         
             <div class="controls">
-                <i class="fas fa-random shuffle"></i> <!-- Shuffle -->
-                <i class="fas fa-step-backward reverse"></i> <!-- Reverse -->
-                <i class="fas fa-play play" style="display: none; padding-right: 4px;"></i> <!-- Play -->
-                <i class="fas fa-pause pause" style="display: block; padding: 0 7px;"></i> <!-- Pause -->
-                <i class="fas fa-step-forward forward"></i> <!-- Forward -->
-                <i class="fa-solid fa-repeat repeat"></i> <!-- Repeat -->
+                <i class="fas fa-random shuffle" id = "shufBtn"></i> <!-- Shuffle -->
+                <i class="fas fa-step-backward reverse" id = "prevBtn"></i> <!-- Reverse -->
+                <i class="fas fa-play play" style="padding-right: 4px;" id = "playBtn"></i> <!-- Play -->
+                <i class="fas fa-step-forward forward" id = "fwdBtn"></i> <!-- Forward -->
+                <i class="fa-solid fa-repeat repeat" id = "repBtn"></i> <!-- Repeat -->
             </div>
         </div>
 
         <div class="other-controls">
             <div class="menu"> <!-- More Options -->
-                <i class="fa-solid fa-bars"></i>
+                <i id = "hamburger" class="fa-solid fa-bars"></i>
             </div>
             <div class="volume">
-                <i class="fa-solid fa-volume-high"></i>
+                <i id = "volIcon" class="fa-solid fa-volume-high"></i>
                 <div class="volume-bar">
-                    <input type="range" class="slider" min = "0" max = "100" value = "0">
+                    <input id = "volBar" type="range" class="slider" min = "0" max = "100" value = "0">
                 </div>
             </div>
         </div>
