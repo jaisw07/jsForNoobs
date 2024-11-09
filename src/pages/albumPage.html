@@ -37,12 +37,15 @@
 <script src="../scripts/music.js"></script>
 <link rel="shortcut icon" type="image/x-icon" href="../assets/browserIcon.ico" />
 <link rel="stylesheet" href="albumPage.css" media="print" onload="this.media='all'">
+<script src="../scripts/album.js" defer></script>
 
 </head>
 <body>
     <nav class="navbar">
         <div class="logo-container" id="logo-home">
-            <img src="../assets/Beat.it White Logo.png" alt="Beat.it Logo" width="60px" height="60px">
+            <a href="HomePage.html">
+                <img src="../assets/Beat.it White Logo.png" alt="Beat.it Logo" width="60px" height="60px">
+            </a>
         </div>
 
         <form class="searchbar" action="SearchPage.html">
@@ -73,7 +76,7 @@
         <div class="container">
             <div class="left">
                 <div class="buttons">
-                    <button class="albPlay">
+                    <button class="albPlay" id = "albPlay">
                         <i class="fa-solid fa-circle-play"></i>
                     </button>
                     <button class="albRepeat">
