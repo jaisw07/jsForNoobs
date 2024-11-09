@@ -63,6 +63,7 @@
     position: relative;
     top: 150px;
     border-radius: 40px;
+    height: 100%;
 }
 
 .profile-pic {
@@ -90,8 +91,10 @@
 .likedsongs{
     margin-right: 230px;
     width: 500px;
-    height: 700px;
+}
 
+.likedsongs img {
+    height: 100%;
 }
 
 .likedsongs :hover{
