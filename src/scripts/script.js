@@ -8,7 +8,7 @@ const totalTime = document.querySelector("#totalTime")
 //
 const play = document.querySelector("#playBtn")
 const prev = document.querySelector("#prevBtn")
-const fwd = document.querySelector("#fwdBtn")
+const next = document.querySelector("#fwdBtn")
 const rep = document.querySelector("#repBtn")
 const shuffle = document.querySelector("#shufBtn")
 //
@@ -26,6 +26,7 @@ let song = document.createElement("audio");
 
 // Event Listeners
 play.addEventListener("click", playSong);
+next.addEventListener("click", nextSong);
 
 // Load Songs
 function loadSong(indexSong) {
@@ -50,4 +51,13 @@ function playSong() {
         isPlaying = false;
         play.innerHTML = '<i class="fa-solid fa-play"></i>';
     }
+}
+
+// Next Song
+function nextSong() {
+    if(indexSong < musicList.length) {
+        indexSong = (indexSong+1)%musicList.length
+    }
+    loadSong(indexSong);
+    playSong();
 }
