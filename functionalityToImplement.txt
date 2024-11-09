@@ -1,0 +1,9 @@
+Functionality to add:
+1) Playbar
+-play/pause done
+-seekbar
+-volume adjust
+-prev and next done
+-shuffle
+-repeat
+-songs panel click

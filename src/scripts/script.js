@@ -40,7 +40,7 @@ function loadSong(indexSong) {
 
 loadSong(indexSong);
 
-// Play Song
+// Play with toggle
 
 function togglePlay() {
     if(!isPlaying) {
