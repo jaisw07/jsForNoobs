@@ -43,11 +43,11 @@ function playSong() {
     if(!isPlaying) {
         song.play();
         isPlaying = true;
-        play.src = '<i class="fa-solid fa-pause"></i>';
+        play.innerHTML = '<i class="fa-solid fa-pause"></i>';
     }
     else{
         song.pause();
         isPlaying = false;
-        play.src = '<i class="fa-solid fa-play"></i>';
+        play.innerHTML = '<i class="fa-solid fa-play"></i>';
     }
 }

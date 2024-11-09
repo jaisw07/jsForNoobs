@@ -275,13 +275,16 @@
     color: var(--white);
 }
 
-.playbar .controls i {
-    cursor: pointer;
+.playbar .controls .controlBtns {
+    background-color: transparent;
+    border: none;
+    width: 1rem;
+    color: var(--white);
 }
 
-.playbar .controls .shuffle {
-    transition: color 0.5s ease;
-    color: var(--white);
+.playbar .controls i {
+    cursor: pointer;
+    font-size: 20px;
 }
 
 .other-controls {
