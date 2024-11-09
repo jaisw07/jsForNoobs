@@ -39,12 +39,15 @@
     <link rel="stylesheet" href="../modular_styles/profileStyles.css" media="print" onload="this.media='all'">
     <script src="../scripts/script.js" defer></script>
     <script src="../scripts/music.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/browserIcon.ico" />
 </head>
 
 <body>
     <nav class="navbar">
         <div class="logo-container" id="logo-home">
-            <img src="../assets/Beat.it White Logo.png" alt="Beat.it Logo" width="60px" height="60px">
+            <a href="HomePage.html">
+                <img src="../assets/Beat.it White Logo.png" alt="Beat.it Logo" width="60px" height="60px">
+            </a>
         </div>
 
         <form class="searchbar" action="SearchPage.html">
@@ -182,11 +185,13 @@
             <h1 id="album-heading">Albums</h1>
             <div id="album-list">
                 <div class="album-row">
-                    <div class="album-row-item">
-                        <img src="../assets/home/Album Cover - 1.png" class="album-cover"
-                            alt="Album Cover: The Queen Is Dead" width="145px" height="145px">
-                        <p class="album-title font-syne">The Queen Is Dead</p>
-                    </div>
+                    <a href="albumPage.html">
+                        <div class="album-row-item">
+                            <img src="../assets/images/ab67616d0000b27396fa496a2cfc301430589024.jpeg.jpg" class="album-cover"
+                                alt="Album Cover: Veer Zaara" width="145px" height="145px">
+                            <p class="album-title font-syne">Veer Zaara</p>
+                        </div>
+                    </a>
                     <div class="album-row-item">
                         <img src="../assets/home/Album Cover - 2.png" class="album-cover" alt="Album Cover: Abbey Road"
                             width="145px" height="145px">
@@ -260,7 +265,7 @@
                     <input id = "volBar" type="range" class="slider" min = "0" max = "100" value = "0">
                 </div>
             </div>
-        </div>
+        </div>  
     </footer>
 
     <div class="playlist">
