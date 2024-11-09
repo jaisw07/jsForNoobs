@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Syne', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #002760;
+    background-image: url(../assets/bg-graphic.webp);
+    background-size: cover;
+    overflow: hidden;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.logo img {
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    left: 20px;
+}
+
+.navbar-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #000;
+}
+
+.container {
+    margin-top: 80px;
+    width: 80%;
+    max-width: 1200px;
+    background: #1E6091;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.song-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.song-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background: #74C2E1;
+    border-radius: 10px;
+    color: #000;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.song-number, .song-title, .song-duration {
+    margin: 0 10px;
+}
+
+.song-title {
+    flex: 1;
+    text-align: left;
+}
+
+.song-duration {
+    width: 50px;
+    text-align: center;
+}
+
+.remove-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #FF0000;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.remove-button:hover {
+    transform: scale(1.2);
+}
