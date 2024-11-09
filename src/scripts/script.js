@@ -60,12 +60,10 @@ function togglePlay() {
 function noTogglePlay() {
     if(isPlaying) {
         song.play();
-        isPlaying = true;
         play.innerHTML = '<i class="fa-solid fa-pause"></i>';
     }
     else{
         song.pause();
-        isPlaying = false;
         play.innerHTML = '<i class="fa-solid fa-play"></i>';
     }
 }
