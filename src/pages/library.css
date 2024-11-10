@@ -201,11 +201,6 @@ input *{
     font-size: 10px;
 }
 
-.liked{
-    color: rgb(255, 0, 0);
-    font-weight: 900;
-} 
-
 /* Player Section Styles*/
 .player {
     display: flex;
