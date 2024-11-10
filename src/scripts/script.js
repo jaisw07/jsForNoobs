@@ -18,16 +18,27 @@ const hamburger = document.querySelector("#hamburger")
 //
 const playlistView = document.querySelector(".playlist")
 const songTile = document.querySelector(".songTile")
+// albumPage vars
+const albPlayBtn = document.getElementById("albPlay");
 //control variables
 let timer;
 let indexSong = 0;
 let isPlaying = false;
 let song = document.createElement("audio");
+let albAutoPlayState = 0;
+let volState = 1;
+
+//setting initial volume = 100
+song.volume = 1;
+volBar.value = 100;
 
 // Event Listeners
 play.addEventListener("click", togglePlay);
 next.addEventListener("click", nextSong);
 prev.addEventListener("click", prevSong);
+// albPlayBtn.addEventListener("click", autoPlayFunc);
+volIcon.addEventListener("click", muteToggle);
+volBar.addEventListener("change", changeVolume);
 
 // Load Songs
 function loadSong(indexSong) {
@@ -87,4 +98,41 @@ function prevSong() {
     }
     loadSong(indexSong);
     noTogglePlay();
+}
+
+// Album AutoPlay all functionality
+// function autoPlayFunc() {
+//     if(albAutoPlayState == 0) {
+//          albAutoPlayState = 1;
+//          albPlayBtn.innerHTML = '<i class="fa-solid fa-circle-pause"></i>';
+
+//     }
+//     else{
+//         albAutoPlayState = 0;
+//         albPlayBtn.innerHTML = '<i class="fa-solid fa-circle-play"></i>';
+        
+
+//     }
+    
+// }
+
+// Mute Toggle
+function muteToggle() {
+    if(volState == 1) {
+        volState = 0;
+        song.volume = 0;
+        volBar.value = 0;
+        volIcon.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+    }
+    else{
+        volState = 1;
+        song.volume = 1;
+        volBar.value = 100;
+        volIcon.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+    }
+}
+
+// change Volume
+function changeVolume() {
+    song.volume = (volBar.value) / 100;
 }
