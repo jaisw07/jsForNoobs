@@ -16,11 +16,11 @@ const shuffleBtn = document.querySelector("#shuffleBtn")
 const volIcon = document.querySelector("#volIcon")
 const volBar = document.querySelector("#volBar")
 const hamburger = document.querySelector("#hamburger")
-//
-const playlistView = document.querySelector(".playlist")
-const songTile = document.querySelector(".songTile")
 // albumPage vars
 const albPlayBtn = document.getElementById("albPlay");
+//library
+const songPanel = document.querySelector(".songPanel")
+const songTile = document.querySelector(".songTile")
 
 // // songIdentifiers
 // const DoPal = document.getElementById("DoPal")
@@ -230,8 +230,6 @@ function currentTimeUpdate() {
     let currSecs = Math.floor(song.currentTime) - (currMins*60);
     let totalMins = Math.floor(song.duration/60);
     let totalSecs = Math.floor(song.duration) - (totalMins*60);
-    // currTime.innerHTML = currMins+":"+String.format("%02d", currSecs);
-    // totalTime.innerHTML = totalMins+":"+String.format("%02d", totalSecs);
     // Format seconds to always show two digits
     currSecs = String(currSecs).padStart(2, '0');
     totalSecs = String(totalSecs).padStart(2, '0');
@@ -274,3 +272,59 @@ function repSongs() {
         rep.innerHTML = '<i class="fa-solid fa-repeat repeat"></i>'
     }
 }
+
+
+
+
+//display songs
+async function displaySongsInLibrary(list) {
+    let songPanel = document.querySelector('.songPanel'); // Assuming you have a container for the song tiles
+
+    for (let i = 0; i < list.length; i++) {
+        await new Promise((resolve) => {
+            let tempSong = new Audio(); // Create a new audio element for each song
+            tempSong.src = list[i].audioPath; 
+            tempSong.load();
+
+            // Set up the onloadedmetadata event
+            tempSong.onloadedmetadata = function() {
+                // Calculating duration
+                let totalMins = Math.floor(tempSong.duration / 60);
+                let totalSecs = Math.floor(tempSong.duration) - (totalMins * 60);
+                totalSecs = String(totalSecs).padStart(2, '0');
+
+                console.log(`${totalMins}:${totalSecs}`);
+
+                let div = document.createElement("div");
+                div.classList.add("songTile");
+                div.innerHTML = 
+                `
+                    <div class="leftTile">
+                        <div class="index">
+                            <p>${i + 1}</p>
+                        </div>
+                        <div class="songName">
+                            <p>${list[i].name}</p>
+                        </div>
+                    </div>
+                    <div class="rightTile">
+                        <div class="duration">
+                            <p>${totalMins}:${totalSecs}</p>
+                        </div>
+                        <div class="heartIcon">
+                            <button class="heart"><i class="fa-regular fa-heart"></i></button>
+                        </div>
+                    </div>
+                `;
+
+                songPanel.appendChild(div);
+                resolve(); // Resolve the promise when the song tile is created
+            };
+        });
+    }
+
+    console.log("All songs have been loaded and displayed.");
+}
+
+// Call the function with your music list
+displaySongsInLibrary(musicList);
