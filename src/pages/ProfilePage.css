@@ -44,26 +44,33 @@
     color: red;
 }
 
+.row1{
+    display:flex;
+    flex-direction: row;
+}
+
 /* Expanded Profile Styles */
 .expanded-profile {
     display: flex;
     flex-direction: column;
-    width: 80vw;
-    height: 50vh;
+    width: 40vw;
+    height: 40vh;
     margin: auto;
+    margin-left: 230px;
     align-items: center;
     justify-content: center;
     background-color: #022c6bd1;
     position: relative;
     top: 150px;
     border-radius: 40px;
+    height: 100%;
 }
 
 .profile-pic {
     position: fixed;
     width: 400px;
     height: 400px;
-    top: 60px;
+    top: 100px;
 }
 
 .details-container {
@@ -72,7 +79,7 @@
     color: var(--white);
     letter-spacing: 1px;
     position: relative;
-    top: 40px;
+    top: 0px;
     font-size: xx-large;
 }
 
@@ -80,6 +87,21 @@
     font-weight: 100;
     padding: 8px;
 }
+
+.likedsongs{
+    margin-right: 230px;
+    width: 500px;
+}
+
+.likedsongs img {
+    height: 100%;
+}
+
+.likedsongs :hover{
+    filter: drop-shadow(8px 8px 16px rgba(0, 0, 0, 0.5));
+
+}
+
 
 /* Player Section Styles*/
 .player {
@@ -232,3 +254,4 @@
         width: 100%;
     }
 }
+
