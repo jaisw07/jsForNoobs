@@ -142,6 +142,11 @@ input *{
     padding: 1rem 1rem;
 }
 
+.container .left .songPanel :hover{
+    transform: scale(1.02);
+    transition: transform 0.32s;
+}
+
 .container .left .songPanel .songTile .leftTile, .rightTile{
     display: flex;
     gap: 1rem;
