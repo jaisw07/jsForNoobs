@@ -39,6 +39,7 @@ prev.addEventListener("click", prevSong);
 // albPlayBtn.addEventListener("click", autoPlayFunc);
 volIcon.addEventListener("click", muteToggle);
 volBar.addEventListener("change", changeVolume);
+seekBar.addEventListener("change", changeCurrTime);
 
 // Load Songs
 function loadSong(indexSong) {
@@ -141,4 +142,10 @@ function changeVolume() {
     else{
         volIcon.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
     }
+}
+
+// change current time
+function changeCurrTime() {
+    let seekBarPosition = song.duration * (seekBar.value / 100);
+    song.currentTime = seekBarPosition;
 }
