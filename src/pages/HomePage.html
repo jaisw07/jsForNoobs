@@ -242,12 +242,16 @@
         <div class="playbar">
             <div class="progress-bar">
                 <div id = "currentTime" class="currentTime font-inter">0:00</div>
-                <input type="range" id = "seekBar" class="slider" min = "0" max = "100" value = "0">
+                <input type="range" id = "seekBar" class="seekBar" min = "0" max = "100" value = "0">
                 <div id = "totalTime" class="totalTime font-inter">2:40</div>
             </div>
         
             <div class="controls">
-                <button class="controlBtns" id = "shufBtn"><i class="fas fa-random shuffle"></i></button> <!-- Shuffle -->
+                <!-- Auto Play Next -->
+                <!-- <button class="controlBtns" id = "autoPlayToggle">
+                    <i class="fa-solid fa-toggle-off"></i>
+                </button>  -->
+                <button class="controlBtns" id="shuffleBtn"><i class="fa-solid fa-shuffle"></i></button>
                 <button class="controlBtns" id = "prevBtn"><i class="fas fa-step-backward reverse"></i></button> <!-- Reverse -->
                 <button class="controlBtns" id = "playBtn"><i class="fa-solid fa-play"></i></button> <!-- Play -->
                 <button class="controlBtns" id = "fwdBtn"><i class="fas fa-step-forward forward"></i></button> <!-- Forward -->
@@ -260,7 +264,9 @@
                 <i id = "hamburger" class="fa-solid fa-bars"></i>
             </div>
             <div class="volume">
-                <i id = "volIcon" class="fa-solid fa-volume-high"></i>
+                <button class="volIcon" id = "volIcon">
+                    <i class="fa-solid fa-volume-high"></i>
+                </button>
                 <div class="volume-bar">
                     <input id = "volBar" type="range" class="slider" min = "0" max = "100" value = "0">
                 </div>
@@ -268,7 +274,7 @@
         </div>  
     </footer>
 
-    <div class="playlist">
+    <!-- <div class="playlist">
         <div class="songTile">
             <p class="font-inter">1. SONG 1</p>
         </div>
@@ -281,6 +287,6 @@
         <div class="songTile">
             <p class="font-inter">1. SONG 1</p>
         </div>
-    </div>
+    </div> -->
 </body>
 </html>

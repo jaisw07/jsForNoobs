@@ -8,6 +8,10 @@
     --main-body-bg: rgba(0, 39, 96, 0.55);
 }
 
+input *{
+    outline: none;
+}
+
 /* Nav Bar Styles */
 .navbar {
     display: flex;
@@ -258,7 +262,7 @@
     color: var(--primary-text);
 }
 
-.playbar .progress-bar .slider {
+.playbar .progress-bar .seekBar {
     width: 500px;
     height: 10px;
     max-width: 100%;
@@ -300,6 +304,13 @@
     justify-content: space-between;
     gap: 1rem;
     margin-right: 1rem;
+}
+
+.other-controls *{
+    background-color: transparent;
+    border: none;
+    color: var(--white);
+    font-size: 18px;
 }
 
 .other-controls .volume .volume-bar {
