@@ -1,0 +1,347 @@
+:root {
+    --grey: #605E72;
+    --shadow: rgb(24, 24, 24);
+    --white: #FEFFF1;
+    --primary-text: #C3C2C9;
+    --search-text: #AFAFB1;
+    --footer-bg: #022C6B;
+    --main-body-bg: rgba(0, 39, 96, 0.55);
+}
+
+input *{
+    outline: none;
+}
+
+/* Nav Bar Styles */
+.navbar {
+    display: flex;
+    margin: 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#logo-home img {
+    border-radius: 30px;
+    box-shadow: 0 0 0 var(--shadow);
+    transition: box-shadow 0.4s ease-in-out;
+}
+
+#logo-home img:hover {
+    box-shadow: 0 0 50px var(--shadow);
+}
+
+/* Search Bar Styles */
+.searchbar {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 725px;
+    height: 52px;
+    border-radius: 25px;
+    background-color: var(--grey);
+    box-shadow: 0 0 20px var(--shadow);
+}
+
+#search-icon {
+    margin-left: 10px;
+}
+
+#line-separator {
+    width: 35px;
+    margin-left: 35px;
+    position: absolute;
+    transform: rotate(90deg);
+    border: 1px solid var(--white);
+}
+
+#search-input {
+    margin-left: 25px;
+    border: none;
+    font-size: larger;
+    color: var(--search-text);
+    background-color: var(--grey);
+    width: 80%;
+}
+
+#search-input:focus {
+    outline: none;
+    color: var(--search-text);
+    background-color: var(--grey);
+}
+
+#search-input:webkit-autofill {
+    color: var(--search-text) !important;
+    background-color: var(--grey) !important;
+}
+
+#search-input::placeholder {
+    color: var(--search-text);
+}
+
+/* Body */
+.main-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    margin-top: 2.5rem;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--main-body-bg);
+    margin: auto auto;
+    width: 95%;
+    height: 72vh;
+    border-radius: 50px;
+    padding: 1rem 1rem;
+}
+
+
+.container .left{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 70%;
+    height: 90%;
+    /* background-color: gray; */
+    gap: 1rem;
+}
+
+.container .left .buttons{
+    display: flex;
+    align-items:flex-start;
+    gap: 1rem;
+    width: 100%;
+}
+
+.container .left .buttons *{
+    background-color: transparent;
+    border: none;
+    color: var(--primary-text);
+    font-size: 40px;
+}
+
+.container .left .songPanel{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+}
+
+.container .left .songPanel .songTile{
+    display: flex;
+    justify-content: space-between;
+    background-color: #7CBBDF;
+    border-radius: 10px;
+    width: 100%;
+    padding: 1rem 1rem;
+}
+
+.container .left .songPanel .songTile .leftTile, .rightTile{
+    display: flex;
+    gap: 1rem;
+}
+
+.container .left .songPanel .songTile .rightTile .heartIcon *{
+    background-color: transparent;
+    border: none;
+    color: black;
+    font-size: large;
+}
+
+.container .right{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center;     */
+    width: 25%;
+    height: 90%;
+    gap: 1rem;
+    background-color: rgba(0, 0, 0, .6);
+    padding: 1rem 1rem;
+    border-radius: 30px;
+}
+
+
+.container .right .albumArt{
+    display: flex;
+    align-items: center;
+}
+
+.container .right img{
+    max-width: 100%;
+    margin: auto auto;
+}
+
+.container .right .albumDesc{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.container .right .albumDesc *{
+    color: rgba(254, 255, 241, .6);
+    font-weight: lighter;
+}
+
+.container .right .albumDesc .albName{
+    font-size: 40px;
+}
+
+.container .right .albumDesc .artist{
+    font-size: 10px;
+}
+
+/* Player Section Styles*/
+.player {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--footer-bg);
+    width: 100%;
+    height: 90px;
+    align-items: center;
+    box-shadow: 0 0 40px;
+    justify-content: space-between;
+}
+
+.player-albuminfo,
+.other-controls {
+    display: flex;
+    width: 25vw;
+    height: 100%;
+    align-items: center;
+}
+
+.player-albuminfo .like-btn {
+    cursor: pointer;
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+}
+
+.player-albuminfo .like-btn .fa-heart {
+    color: var(--white);
+    font-weight: 100;
+    transition: color 0.2s ease-in, font-weight 0.15s ease-in;
+}
+
+.player-albuminfo .like-btn input[type="checkbox"]:checked+.fa-heart {
+    color: red;
+    font-weight: 900;
+}
+
+.player-albuminfo .player-songcover {
+    margin: 12px 12px 12px 20px;
+    width: 75px;
+    height: 75px;
+}
+
+.player-albuminfo .player-songdetails {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: center;
+    margin: auto 10px;
+    color: var(--white);
+}
+
+/* Playbar Section Styles */
+.playbar {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    align-items: center;
+    row-gap: 20px;
+}
+
+.playbar .progress-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    /* width: 500px;
+    height: 10px;
+    border-radius: 5px;
+    background-color: var(--grey); */
+}
+
+.playbar .progress-bar .currentTime{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--primary-text);
+}
+
+.playbar .progress-bar .totalTime{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--primary-text);
+}
+
+.playbar .progress-bar .seekBar {
+    width: 500px;
+    height: 10px;
+    max-width: 100%;
+    border-radius: 5px;
+    background-color: var(--white);
+}
+
+.playbar .controls {
+    display: flex;
+    font-size: 25px;
+    cursor: default;
+    justify-content: space-between;
+    width: 160px;
+    color: var(--white);
+}
+
+.playbar .controls .controlBtns {
+    background-color: transparent;
+    border: none;
+    width: 1rem;
+    color: var(--white);
+}
+
+.playbar .controls i {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.other-controls {
+    justify-content: flex-end;
+    gap: 1rem;
+    font-size: 18px;
+    color: var(--white);
+}
+
+.other-controls .volume {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-right: 1rem;
+}
+
+.other-controls *{
+    background-color: transparent;
+    border: none;
+    color: var(--white);
+    font-size: 18px;
+}
+
+.other-controls .volume .volume-bar {
+    width: 100%;
+    height: 10px;
+    margin-bottom: 0.5rem;
+}
