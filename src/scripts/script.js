@@ -10,7 +10,7 @@ const play = document.querySelector("#playBtn")
 const prev = document.querySelector("#prevBtn")
 const next = document.querySelector("#fwdBtn")
 const rep = document.querySelector("#repBtn")
-const shuffle = document.querySelector("#shufBtn")
+const autoPlayToggle = document.querySelector("#autoPlayToggle")
 //
 const volIcon = document.querySelector("#volIcon")
 const volBar = document.querySelector("#volBar")
@@ -26,6 +26,7 @@ let indexSong = 0;
 let isPlaying = false;
 let song = document.createElement("audio");
 let albAutoPlayState = 0;
+let autoPlayToggleState = 0;
 let volState = 1;
 
 //setting initial volume = 100
@@ -40,14 +41,18 @@ prev.addEventListener("click", prevSong);
 volIcon.addEventListener("click", muteToggle);
 volBar.addEventListener("change", changeVolume);
 seekBar.addEventListener("change", changeCurrTime);
+autoPlayToggle.addEventListener("click", toggleAutoPlayFunc);
 
 // Load Songs
 function loadSong(indexSong) {
+    clearInterval(timer);
+    resetSeekBar();
     songName.innerHTML = musicList[indexSong].name;
     song.src = musicList[indexSong].audioPath;
     albArt.src = musicList[indexSong].albumArt;
     songArtist.innerHTML = musicList[indexSong].artist;
     song.load();
+    timer = setInterval(updateSeekBar, 16);
 }
 
 loadSong(indexSong);
@@ -117,6 +122,19 @@ function prevSong() {
     
 // }
 
+// autoPlayToggle
+function toggleAutoPlayFunc() {
+    if(autoPlayToggleState == 0) {
+        autoPlayToggleState = 1;
+        autoPlayToggle.innerHTML = '<i class="fa-solid fa-toggle-on"></i>';
+    }
+    else {
+        autoPlayToggleState = 0;
+        autoPlayToggle.innerHTML = '<i class="fa-solid fa-toggle-off"></i>';
+    }
+}
+
+
 // Mute Toggle
 function muteToggle() {
     if(volState == 1) {
@@ -148,4 +166,24 @@ function changeVolume() {
 function changeCurrTime() {
     let seekBarPosition = song.duration * (seekBar.value / 100);
     song.currentTime = seekBarPosition;
+}
+
+// updateSeekBar
+function resetSeekBar() {
+    seekBar.value = 0;
+}
+function updateSeekBar() {
+    let position = 0;
+    if(!isNaN(song.duration)) {
+        position = song.currentTime * (100 / song.duration);
+        seekBar.value = position;
+    }
+    if(song.ended) {
+        if(autoPlayToggleState == 1) {
+            nextSong();
+        }
+        else {
+            play.innerHTML = '<i class="fa-solid fa-play"></i>';
+        }
+    }
 }
