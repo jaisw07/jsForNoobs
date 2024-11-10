@@ -46,7 +46,7 @@ async function displaySongsInLibrary(list) {
 }
 
 // Call the function with your music list
-displaySongsInLibrary(musicList);
+displaySongsInLibrary(VeerZaara);
 
 
 //playing song from library
