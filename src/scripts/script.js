@@ -131,11 +131,16 @@ function nextSong() {
 
 // Prev Song
 function prevSong() {
-    if(indexSong > 0) {
-        indexSong = indexSong-1
+    if(repState == 0) {
+        if(indexSong > 0) {
+            indexSong = indexSong-1
+        }
+        else{
+            indexSong = musicList.length-1
+        }
     }
     else{
-        indexSong = musicList.length-1
+        indexSong = indexSong;
     }
     loadSong(indexSong);
     noTogglePlay();
