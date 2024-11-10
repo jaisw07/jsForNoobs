@@ -10,7 +10,8 @@ const play = document.querySelector("#playBtn")
 const prev = document.querySelector("#prevBtn")
 const next = document.querySelector("#fwdBtn")
 const rep = document.querySelector("#repBtn")
-const autoPlayToggle = document.querySelector("#autoPlayToggle")
+// const autoPlayToggle = document.querySelector("#autoPlayToggle")
+const shuffleBtn = document.querySelector("#shuffleBtn")
 //
 const volIcon = document.querySelector("#volIcon")
 const volBar = document.querySelector("#volBar")
@@ -25,9 +26,10 @@ let timer;
 let indexSong = 0;
 let isPlaying = false;
 let song = document.createElement("audio");
-let albAutoPlayState = 0;
-let autoPlayToggleState = 0;
+// let albAutoPlayState = 0;
+// let autoPlayToggleState = 0;
 let volState = 1;
+let shuffleState = 0;
 
 //setting initial volume = 100
 song.volume = 1;
@@ -41,8 +43,9 @@ prev.addEventListener("click", prevSong);
 volIcon.addEventListener("click", muteToggle);
 volBar.addEventListener("change", changeVolume);
 seekBar.addEventListener("change", seekSong);
-autoPlayToggle.addEventListener("click", toggleAutoPlayFunc);
+// autoPlayToggle.addEventListener("click", toggleAutoPlayFunc);
 song.addEventListener("timeupdate", currentTimeUpdate)
+shuffleBtn.addEventListener("click", shuffleSongs)
 
 // Load Songs
 function loadSong(indexSong) {
@@ -89,7 +92,12 @@ function noTogglePlay() {
 // Next Song
 function nextSong() {
     if(indexSong < musicList.length) {
-        indexSong = (indexSong+1)%musicList.length
+        if(shuffleState == 0) {
+            indexSong = (indexSong+1)%musicList.length
+        }
+        else{
+            indexSong = getRandomInt(0, musicList.length-1);
+        }
     }
     loadSong(indexSong);
     noTogglePlay();
@@ -124,16 +132,16 @@ function prevSong() {
 // }
 
 // autoPlayToggle
-function toggleAutoPlayFunc() {
-    if(autoPlayToggleState == 0) {
-        autoPlayToggleState = 1;
-        autoPlayToggle.innerHTML = '<i class="fa-solid fa-toggle-on"></i>';
-    }
-    else {
-        autoPlayToggleState = 0;
-        autoPlayToggle.innerHTML = '<i class="fa-solid fa-toggle-off"></i>';
-    }
-}
+// function toggleAutoPlayFunc() {
+//     if(autoPlayToggleState == 0) {
+//         autoPlayToggleState = 1;
+//         autoPlayToggle.innerHTML = '<i class="fa-solid fa-toggle-on"></i>';
+//     }
+//     else {
+//         autoPlayToggleState = 0;
+//         autoPlayToggle.innerHTML = '<i class="fa-solid fa-toggle-off"></i>';
+//     }
+// }
 
 
 // Mute Toggle
@@ -180,12 +188,13 @@ function updateSeekBar() {
         seekBar.value = position;
     }
     if(song.ended) {
-        if(autoPlayToggleState == 1) {
-            nextSong();
-        }
-        else {
-            play.innerHTML = '<i class="fa-solid fa-play"></i>';
-        }
+        // if(autoPlayToggleState == 1) {
+        //     nextSong();
+        // }
+        // else {
+        //     play.innerHTML = '<i class="fa-solid fa-play"></i>';
+        // }
+        nextSong();
     }
 }
 
@@ -203,4 +212,23 @@ function currentTimeUpdate() {
 
     currTime.innerHTML = currMins+":"+currSecs;
     totalTime.innerHTML = totalMins+":"+totalSecs;
+}
+
+//random number gen for shuffle
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+//shuffle functionality
+function shuffleSongs() {
+    if(shuffleState == 0) {
+        shuffleState = 1;
+        shuffleBtn.innerHTML = '<i class="fa-solid fa-shuffle" style = "color: #32CD32"></i>'
+    }
+    else{
+        shuffleState = 0;
+        shuffleBtn.innerHTML = '<i class="fa-solid fa-shuffle"></i>'
+    }
 }
