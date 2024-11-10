@@ -195,6 +195,12 @@ function currentTimeUpdate() {
     let currSecs = Math.floor(song.currentTime) - (currMins*60);
     let totalMins = Math.floor(song.duration/60);
     let totalSecs = Math.floor(song.duration) - (totalMins*60);
+    // currTime.innerHTML = currMins+":"+String.format("%02d", currSecs);
+    // totalTime.innerHTML = totalMins+":"+String.format("%02d", totalSecs);
+    // Format seconds to always show two digits
+    currSecs = String(currSecs).padStart(2, '0');
+    totalSecs = String(totalSecs).padStart(2, '0');
+
     currTime.innerHTML = currMins+":"+currSecs;
     totalTime.innerHTML = totalMins+":"+totalSecs;
 }
