@@ -10,7 +10,6 @@ const play = document.querySelector("#playBtn")
 const prev = document.querySelector("#prevBtn")
 const next = document.querySelector("#fwdBtn")
 const rep = document.querySelector("#repBtn")
-// const autoPlayToggle = document.querySelector("#autoPlayToggle")
 const shuffleBtn = document.querySelector("#shuffleBtn")
 //
 const volIcon = document.querySelector("#volIcon")
@@ -22,31 +21,11 @@ const albPlayBtn = document.getElementById("albPlay");
 const songPanel = document.querySelector(".songPanel")
 const songTile = document.querySelector(".songTile")
 
-// // songIdentifiers
-// const DoPal = document.getElementById("DoPal")
-// const MainYahanHoon = document.getElementById("MainYahanHoon")
-// const TereLiye = document.getElementById("TereLiye")
-// const OneMoreTime = document.getElementById("OneMoreTime")
-// const Something = document.getElementById("Something")
-// const Haareya = document.getElementById("Haareya")
-// //index dictionary
-// song_dictionary = {
-//     "DoPal" : [0],
-//     "MainYahanHoon" : [1],
-//     "TereLiye" : [2],
-//     "OneMoreTime" : [3],
-//     "Something" : [4],
-//     "Haareya" : [5],
-// }
-
-
 //control variables
 let timer;
 let indexSong = 0;
 let isPlaying = false;
 let song = document.createElement("audio");
-// let albAutoPlayState = 0;
-// let autoPlayToggleState = 0;
 let volState = 1;
 let shuffleState = 0;
 let repState = 0;
@@ -59,11 +38,9 @@ volBar.value = 100;
 play.addEventListener("click", togglePlay);
 next.addEventListener("click", nextSong);
 prev.addEventListener("click", prevSong);
-// albPlayBtn.addEventListener("click", autoPlayFunc);
 volIcon.addEventListener("click", muteToggle);
 volBar.addEventListener("change", changeVolume);
 seekBar.addEventListener("change", seekSong);
-// autoPlayToggle.addEventListener("click", toggleAutoPlayFunc);
 song.addEventListener("timeupdate", currentTimeUpdate)
 shuffleBtn.addEventListener("click", shuffleSongs)
 rep.addEventListener("click", repSongs)
@@ -146,35 +123,6 @@ function prevSong() {
     noTogglePlay();
 }
 
-// Album AutoPlay all functionality
-// function autoPlayFunc() {
-//     if(albAutoPlayState == 0) {
-//          albAutoPlayState = 1;
-//          albPlayBtn.innerHTML = '<i class="fa-solid fa-circle-pause"></i>';
-
-//     }
-//     else{
-//         albAutoPlayState = 0;
-//         albPlayBtn.innerHTML = '<i class="fa-solid fa-circle-play"></i>';
-        
-
-//     }
-    
-// }
-
-// autoPlayToggle
-// function toggleAutoPlayFunc() {
-//     if(autoPlayToggleState == 0) {
-//         autoPlayToggleState = 1;
-//         autoPlayToggle.innerHTML = '<i class="fa-solid fa-toggle-on"></i>';
-//     }
-//     else {
-//         autoPlayToggleState = 0;
-//         autoPlayToggle.innerHTML = '<i class="fa-solid fa-toggle-off"></i>';
-//     }
-// }
-
-
 // Mute Toggle
 function muteToggle() {
     if(volState == 1) {
@@ -219,12 +167,6 @@ function updateSeekBar() {
         seekBar.value = position;
     }
     if(song.ended) {
-        // if(autoPlayToggleState == 1) {
-        //     nextSong();
-        // }
-        // else {
-        //     play.innerHTML = '<i class="fa-solid fa-play"></i>';
-        // }
         nextSong();
     }
 }
