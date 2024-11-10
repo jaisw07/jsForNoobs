@@ -19,8 +19,16 @@
     <link rel="stylesheet" href="../modular_styles/profileStyles.css" media="print" onload="this.media='all'">
     <script src="../scripts/script.js" defer></script>
     <script src="../scripts/music.js"></script>
-    <script src="../scripts/likedsongs.js"></script>
 
+    <script>
+        document.querySelectorAll('.like-button').forEach(button => {
+        button.addEventListener('click', function() {
+        const icon = this.querySelector('i'); // Select the icon inside the button
+        icon.classList.toggle('unliked'); // Toggle the "unliked" class to change the style
+                 });
+    });
+
+    </script>
     
 
 </head>
@@ -46,7 +54,7 @@
             </div>
         </div>
     </nav>
-
+    
     <div class="row1">
         <div class="likedsongsimage">
             <img src="../assets/Liked Songs Logo.png">

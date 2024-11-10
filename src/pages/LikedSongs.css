@@ -106,6 +106,13 @@ body {
 }
 
 
+.unliked {
+    color: black; 
+    border-color: black;
+    background-color: transparent;
+}
+
+
 /* Player Section Styles*/
 .player {
     display: flex;

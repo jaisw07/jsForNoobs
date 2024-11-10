@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beat.it</title>
-    
+
     <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,13 +33,15 @@
         }
     </style>
 
-<link rel="stylesheet" href="../modular_styles/profileStyles.css" media="print" onload="this.media='all'">
-<script src="../scripts/script.js" defer></script>
-<script src="../scripts/music.js"></script>
-<link rel="shortcut icon" type="image/x-icon" href="../assets/browserIcon.ico" />
-<link rel="stylesheet" href="albumPage.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../modular_styles/profileStyles.css" media="print" onload="this.media='all'">
+    <script src="../scripts/script.js" defer></script>
+    <script src="../scripts/music.js"></script>
+    <script src="../scripts/likedsongs.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/browserIcon.ico" />
+    <link rel="stylesheet" href="albumPage.css" media="print" onload="this.media='all'">
 
 </head>
+
 <body>
     <nav class="navbar">
         <div class="logo-container" id="logo-home">
@@ -75,7 +78,7 @@
         <div class="container">
             <div class="left">
                 <div class="buttons">
-                    <button class="albPlay" id = "albPlay">
+                    <button class="albPlay" id="albPlay">
                         <i class="fa-solid fa-circle-play"></i>
                     </button>
                     <button class="albRepeat">
@@ -96,8 +99,8 @@
                             <div class="duration">
                                 <p>2:43</p>
                             </div>
-                            <div class="heartIcon">
-                                <button class="heart"><i class="fa-regular fa-heart"></i></button>
+                            <div class="heartIcon" data-song-id="1">
+                                <input type="checkbox" class="checkbox"><i class="fa-regular fa-heart likebtn"></i></input>
                             </div>
                         </div>
                     </div>
@@ -115,7 +118,8 @@
                                 <p>2:43</p>
                             </div>
                             <div class="heartIcon">
-                                <button class="heart"><i class="fa-regular fa-heart"></i></button>
+                                <input type="checkbox"></input>
+                                <i class="fa-regular fa-heart likebtn"></i>
                             </div>
                         </div>
                     </div>
@@ -133,7 +137,8 @@
                                 <p>2:43</p>
                             </div>
                             <div class="heartIcon">
-                                <button class="heart"><i class="fa-regular fa-heart"></i></button>
+                                <input type="checkbox"></input>
+                                <i class="fa-regular fa-heart likebtn"></i>
                             </div>
                         </div>
                     </div>
@@ -151,7 +156,8 @@
                                 <p>2:43</p>
                             </div>
                             <div class="heartIcon">
-                                <button class="heart"><i class="fa-regular fa-heart"></i></button>
+                                <input type="checkbox"></input>
+                                <i class="fa-regular fa-heart likebtn"></i>
                             </div>
                         </div>
                     </div>
@@ -169,7 +175,8 @@
                                 <p>2:43</p>
                             </div>
                             <div class="heartIcon">
-                                <button class="heart"><i class="fa-regular fa-heart"></i></button>
+                                <input type="checkbox"></input>
+                                <i class="fa-regular fa-heart likebtn"></i>
                             </div>
                         </div>
                     </div>
@@ -187,7 +194,7 @@
                                 <p>2:43</p>
                             </div>
                             <div class="heartIcon">
-                                <button class="heart"><i class="fa-regular fa-heart"></i></button>
+                                <input type="checkbox" class="checkbox"></input><i class="fa-regular fa-heart likebtn"></i>
                             </div>
                         </div>
                     </div>
@@ -205,7 +212,7 @@
                                 <p>2:43</p>
                             </div>
                             <div class="heartIcon">
-                                <button class="heart"><i class="fa-regular fa-heart"></i></button>
+                                <input type="checkbox"><i class="fa-regular fa-heart"></i></input>
                             </div>
                         </div>
                     </div>
@@ -230,12 +237,13 @@
     <footer class="player">
         <div class="player-albuminfo">
             <div class="player-songcover">
-                <img id = "albumArt" src="../assets/home/Album Cover.png" alt="Player Album Cover" width="75px" height="75px">
+                <img id="albumArt" src="../assets/home/Album Cover.png" alt="Player Album Cover" width="75px"
+                    height="75px">
             </div>
 
             <div class="player-songdetails font-inter" style="font-weight: 500;">
-                <div id = "songName" class="player-songname">Main Yahaan Hoon</div>
-                <div id = "songArtist" class="player-artistname">Artist</div>
+                <div id="songName" class="player-songname">Main Yahaan Hoon</div>
+                <div id="songArtist" class="player-artistname">Artist</div>
             </div>
 
             <div class="like-btn">
@@ -246,31 +254,35 @@
 
         <div class="playbar">
             <div class="progress-bar">
-                <div id = "currentTime" class="currentTime font-inter">0:00</div>
-                <input type="range" id = "seekBar" class="slider" min = "0" max = "100" value = "0">
-                <div id = "totalTime" class="totalTime font-inter">2:40</div>
+                <div id="currentTime" class="currentTime font-inter">0:00</div>
+                <input type="range" id="seekBar" class="slider" min="0" max="100" value="0">
+                <div id="totalTime" class="totalTime font-inter">2:40</div>
             </div>
-        
+
             <div class="controls">
-                <button class="controlBtns" id = "shufBtn"><i class="fas fa-random shuffle"></i></button> <!-- Shuffle -->
-                <button class="controlBtns" id = "prevBtn"><i class="fas fa-step-backward reverse"></i></button> <!-- Reverse -->
-                <button class="controlBtns" id = "playBtn"><i class="fa-solid fa-play"></i></button> <!-- Play -->
-                <button class="controlBtns" id = "fwdBtn"><i class="fas fa-step-forward forward"></i></button> <!-- Forward -->
-                <button class="controlBtns" id = "repBtn"><i class="fa-solid fa-repeat repeat"></i></button> <!-- Repeat -->
+                <button class="controlBtns" id="shufBtn"><i class="fas fa-random shuffle"></i></button> <!-- Shuffle -->
+                <button class="controlBtns" id="prevBtn"><i class="fas fa-step-backward reverse"></i></button>
+                <!-- Reverse -->
+                <button class="controlBtns" id="playBtn"><i class="fa-solid fa-play"></i></button> <!-- Play -->
+                <button class="controlBtns" id="fwdBtn"><i class="fas fa-step-forward forward"></i></button>
+                <!-- Forward -->
+                <button class="controlBtns" id="repBtn"><i class="fa-solid fa-repeat repeat"></i></button>
+                <!-- Repeat -->
             </div>
         </div>
 
         <div class="other-controls">
             <div class="menu"> <!-- More Options -->
-                <i id = "hamburger" class="fa-solid fa-bars"></i>
+                <i id="hamburger" class="fa-solid fa-bars"></i>
             </div>
             <div class="volume">
-                <i id = "volIcon" class="fa-solid fa-volume-high"></i>
+                <i id="volIcon" class="fa-solid fa-volume-high"></i>
                 <div class="volume-bar">
-                    <input id = "volBar" type="range" class="slider" min = "0" max = "100" value = "0">
+                    <input id="volBar" type="range" class="slider" min="0" max="100" value="0">
                 </div>
             </div>
-        </div>  
+        </div>
     </footer>
 </body>
+
 </html>
