@@ -40,8 +40,9 @@ prev.addEventListener("click", prevSong);
 // albPlayBtn.addEventListener("click", autoPlayFunc);
 volIcon.addEventListener("click", muteToggle);
 volBar.addEventListener("change", changeVolume);
-seekBar.addEventListener("change", changeCurrTime);
+seekBar.addEventListener("change", seekSong);
 autoPlayToggle.addEventListener("click", toggleAutoPlayFunc);
+song.addEventListener("timeupdate", currentTimeUpdate)
 
 // Load Songs
 function loadSong(indexSong) {
@@ -162,8 +163,8 @@ function changeVolume() {
     }
 }
 
-// change current time
-function changeCurrTime() {
+// seekSong
+function seekSong() {
     let seekBarPosition = song.duration * (seekBar.value / 100);
     song.currentTime = seekBarPosition;
 }
@@ -186,4 +187,14 @@ function updateSeekBar() {
             play.innerHTML = '<i class="fa-solid fa-play"></i>';
         }
     }
+}
+
+//
+function currentTimeUpdate() {
+    let currMins = Math.floor(song.currentTime/60);
+    let currSecs = Math.floor(song.currentTime) - (currMins*60);
+    let totalMins = Math.floor(song.duration/60);
+    let totalSecs = Math.floor(song.duration) - (totalMins*60);
+    currTime.innerHTML = currMins+":"+currSecs;
+    totalTime.innerHTML = totalMins+":"+totalSecs;
 }

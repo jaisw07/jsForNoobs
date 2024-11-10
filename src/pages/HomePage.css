@@ -258,7 +258,7 @@
     color: var(--primary-text);
 }
 
-.playbar .progress-bar .slider {
+.playbar .progress-bar .seekBar {
     width: 500px;
     height: 10px;
     max-width: 100%;
