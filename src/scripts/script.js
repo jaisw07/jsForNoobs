@@ -30,6 +30,7 @@ let song = document.createElement("audio");
 // let autoPlayToggleState = 0;
 let volState = 1;
 let shuffleState = 0;
+let repState = 0;
 
 //setting initial volume = 100
 song.volume = 1;
@@ -46,6 +47,7 @@ seekBar.addEventListener("change", seekSong);
 // autoPlayToggle.addEventListener("click", toggleAutoPlayFunc);
 song.addEventListener("timeupdate", currentTimeUpdate)
 shuffleBtn.addEventListener("click", shuffleSongs)
+rep.addEventListener("click", repSongs)
 
 // Load Songs
 function loadSong(indexSong) {
@@ -92,12 +94,17 @@ function noTogglePlay() {
 // Next Song
 function nextSong() {
     if(indexSong < musicList.length) {
-        if(shuffleState == 0) {
-            indexSong = (indexSong+1)%musicList.length
+        if(repState == 1) {
+            indexSong = indexSong;
         }
         else{
-            indexSong = getRandomInt(0, musicList.length-1);
-        }
+            if(shuffleState == 1) {
+                indexSong = getRandomInt(0, musicList.length-1, indexSong);
+            }
+            else{
+                indexSong = (indexSong+1)%musicList.length;
+            }
+        }       
     }
     loadSong(indexSong);
     noTogglePlay();
@@ -215,10 +222,15 @@ function currentTimeUpdate() {
 }
 
 //random number gen for shuffle
-function getRandomInt(min, max) {
+function getRandomInt(min, max, curr) {
     min = Math.ceil(min);
     max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+    let ans;
+    do {
+        ans = Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    while(ans == curr)
+    return ans;
 }
 
 //shuffle functionality
@@ -230,5 +242,16 @@ function shuffleSongs() {
     else{
         shuffleState = 0;
         shuffleBtn.innerHTML = '<i class="fa-solid fa-shuffle"></i>'
+    }
+}
+
+function repSongs() {
+    if(repState == 0) {
+        repState = 1;
+        rep.innerHTML = '<i class="fa-solid fa-repeat repeat" style = "color: #32CD32"></i>'
+    }
+    else{
+        repState = 0;
+        rep.innerHTML = '<i class="fa-solid fa-repeat repeat"></i>'
     }
 }
