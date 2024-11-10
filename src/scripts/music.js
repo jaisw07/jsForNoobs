@@ -29,4 +29,10 @@ let musicList = [
         albumArt: "../assets/home/Song Cover - 2.png",
         artist: "The Beatles",
     },
+    {
+        name: "Haareya",
+        audioPath: "../assets/songs/Haareya.mp3",
+        albumArt: "../assets/images/Meri_Pyaari_Bindu.jpg",
+        artist: "Arijit Singh",
+    },
 ]
