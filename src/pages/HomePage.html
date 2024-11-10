@@ -38,6 +38,7 @@
     <link rel="stylesheet" href="HomePage.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="../modular_styles/profileStyles.css" media="print" onload="this.media='all'">
     <script src="../scripts/script.js" defer></script>
+    <script src="../scripts/home.js" defer></script>
     <script src="../scripts/music.js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="../assets/browserIcon.ico" />
 </head>
@@ -77,9 +78,9 @@
     <main class="main-body">
         <section class="song-container font-montserrat">
             <h1 id="song-heading">Songs</h1>
-            <div id="song-list">
+            <div class = "song-list" id="song-list">
                 <div class="song-row-1">
-                    <div class="song-row-item" id="OneMoreTime">
+                    <div class="song-row-item">
                         <img src="../assets/home/Song Cover - 1.png" class="song-cover" alt="Song Cover: One More Time"
                             width="75px" height="75px">
                         <div class="title-artist font-syne">
@@ -87,7 +88,7 @@
                             <div class="album-name">Daft Punk</div>
                         </div>
                     </div>
-                    <div class="song-row-item" id="MainYahanHoon">
+                    <div class="song-row-item">
                         <img src="../assets/images/ab67616d0000b27396fa496a2cfc301430589024.jpeg.jpg" class="song-cover" alt="Song Cover: Main Yahan Hoon"
                             width="75px" height="75px">
                         <div class="title-artist font-syne">
@@ -95,7 +96,7 @@
                             <div class="album-name">Veer Zaara</div>
                         </div>
                     </div>
-                    <div class="song-row-item" id="Something">
+                    <div class="song-row-item">
                         <img src="../assets/home/Song Cover - 2.png" class="song-cover" alt="Song Cover: Something"
                             width="75px" height="75px">
                         <div class="title-artist font-syne">
@@ -103,7 +104,7 @@
                             <div class="album-name">The Beatles</div>
                         </div>
                     </div>
-                    <div class="song-row-item" id="TereLiye">
+                    <div class="song-row-item">
                         <img src="../assets/images/ab67616d0000b27396fa496a2cfc301430589024.jpeg.jpg" class="song-cover" alt="Song Cover: Tere Liye"
                             width="75px" height="75px">
                         <div class="title-artist font-syne">
@@ -111,7 +112,7 @@
                             <div class="album-name">Veer Zaara</div>
                         </div>
                     </div>
-                    <div class="song-row-item" id="Haareya">
+                    <div class="song-row-item">
                         <img src="../assets/images/Meri_Pyaari_Bindu.jpg" class="song-cover" alt="Song Cover: Haareya"
                             width="75px" height="75px">
                         <div class="title-artist font-syne">
@@ -119,7 +120,7 @@
                             <div class="album-name">Meri Pyaari Bindu</div>
                         </div>
                     </div>
-                    <div class="song-row-item" id="DoPal">
+                    <div class="song-row-item">
                         <img src="../assets/images/ab67616d0000b27396fa496a2cfc301430589024.jpeg.jpg" class="song-cover" alt="Song Cover: Do Pal"
                             width="75px" height="75px">
                         <div class="title-artist font-syne">
@@ -128,13 +129,21 @@
                         </div>
                     </div>
                 </div>
-                <div class="song-row-2">
+                <div class="song-row-1">
                     <div class="song-row-item">
-                        <img src="../assets/home/Song Cover - 2.png" class="song-cover" alt="Song Cover: Something"
+                        <img src="../assets/home/Song Cover - 1.png" class="song-cover" alt="Song Cover: One More Time"
                             width="75px" height="75px">
                         <div class="title-artist font-syne">
-                            <div class="song-title">Something</div>
-                            <div class="album-name">The Beatles</div>
+                            <div class="song-title">One More Time</div>
+                            <div class="album-name">Daft Punk</div>
+                        </div>
+                    </div>
+                    <div class="song-row-item">
+                        <img src="../assets/images/ab67616d0000b27396fa496a2cfc301430589024.jpeg.jpg" class="song-cover" alt="Song Cover: Main Yahan Hoon"
+                            width="75px" height="75px">
+                        <div class="title-artist font-syne">
+                            <div class="song-title">Main Yahan Hoon</div>
+                            <div class="album-name">Veer Zaara</div>
                         </div>
                     </div>
                     <div class="song-row-item">
@@ -146,35 +155,27 @@
                         </div>
                     </div>
                     <div class="song-row-item">
-                        <img src="../assets/home/Song Cover - 2.png" class="song-cover" alt="Song Cover: Something"
+                        <img src="../assets/images/ab67616d0000b27396fa496a2cfc301430589024.jpeg.jpg" class="song-cover" alt="Song Cover: Tere Liye"
                             width="75px" height="75px">
                         <div class="title-artist font-syne">
-                            <div class="song-title">Something</div>
-                            <div class="album-name">The Beatles</div>
+                            <div class="song-title">Tere Liye</div>
+                            <div class="album-name">Veer Zaara</div>
                         </div>
                     </div>
                     <div class="song-row-item">
-                        <img src="../assets/home/Song Cover - 2.png" class="song-cover" alt="Song Cover: Something"
+                        <img src="../assets/images/Meri_Pyaari_Bindu.jpg" class="song-cover" alt="Song Cover: Haareya"
                             width="75px" height="75px">
                         <div class="title-artist font-syne">
-                            <div class="song-title">Something</div>
-                            <div class="album-name">The Beatles</div>
+                            <div class="song-title">Haareya</div>
+                            <div class="album-name">Meri Pyaari Bindu</div>
                         </div>
                     </div>
                     <div class="song-row-item">
-                        <img src="../assets/home/Song Cover - 2.png" class="song-cover" alt="Song Cover: Something"
+                        <img src="../assets/images/ab67616d0000b27396fa496a2cfc301430589024.jpeg.jpg" class="song-cover" alt="Song Cover: Do Pal"
                             width="75px" height="75px">
                         <div class="title-artist font-syne">
-                            <div class="song-title">Something</div>
-                            <div class="album-name">The Beatles</div>
-                        </div>
-                    </div>
-                    <div class="song-row-item">
-                        <img src="../assets/home/Song Cover - 2.png" class="song-cover" alt="Song Cover: Something"
-                            width="75px" height="75px">
-                        <div class="title-artist font-syne">
-                            <div class="song-title">Something</div>
-                            <div class="album-name">The Beatles</div>
+                            <div class="song-title">Do Pal</div>
+                            <div class="album-name">Veer Zaara</div>
                         </div>
                     </div>
                 </div>
