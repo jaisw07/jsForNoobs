@@ -17,4 +17,16 @@ let musicList = [
         albumArt: "../assets/images/ab67616d0000b27396fa496a2cfc301430589024.jpeg.jpg",
         artist: "Lata Mangeshkar",
     },
+    {
+        name: "One More Time",
+        audioPath: "../assets/songs/Daft Punk - One More Time (Official Audio).mp3",
+        albumArt: "../assets/home/Song Cover - 1.png",
+        artist: "Daft Punk",
+    },
+    {
+        name: "Something",
+        audioPath: "../assets/songs/The Beatles - Something.mp3",
+        albumArt: "../assets/home/Song Cover - 2.png",
+        artist: "The Beatles",
+    },
 ]
