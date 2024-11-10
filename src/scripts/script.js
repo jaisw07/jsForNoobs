@@ -275,11 +275,8 @@ function repSongs() {
 
 
 
-
 //display songs
 async function displaySongsInLibrary(list) {
-    let songPanel = document.querySelector('.songPanel'); // Assuming you have a container for the song tiles
-
     for (let i = 0; i < list.length; i++) {
         await new Promise((resolve) => {
             let tempSong = new Audio(); // Create a new audio element for each song
@@ -301,10 +298,10 @@ async function displaySongsInLibrary(list) {
                 `
                     <div class="leftTile">
                         <div class="index">
-                            <p>${i + 1}</p>
+                            <p class="paraWithIndex">${i + 1}</p>
                         </div>
                         <div class="songName">
-                            <p>${list[i].name}</p>
+                            <p class="paraWithName">${list[i].name}</p>
                         </div>
                     </div>
                     <div class="rightTile">
@@ -316,7 +313,6 @@ async function displaySongsInLibrary(list) {
                         </div>
                     </div>
                 `;
-
                 songPanel.appendChild(div);
                 resolve(); // Resolve the promise when the song tile is created
             };
@@ -328,3 +324,19 @@ async function displaySongsInLibrary(list) {
 
 // Call the function with your music list
 displaySongsInLibrary(musicList);
+
+
+//playing song from library
+function playFromLibrary() {
+    songPanel.addEventListener("click", (e)=>{
+        if(e.target.classList.contains("songTile")) {
+            // alert(e.target.innerHTML);
+            songIndex = (e.target.querySelector(".paraWithIndex").innerHTML) - 1;
+            console.log(songIndex)
+            loadSong(songIndex);
+            song.play()
+        }
+    })
+}
+
+playFromLibrary();
