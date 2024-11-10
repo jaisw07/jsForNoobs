@@ -21,6 +21,25 @@ const playlistView = document.querySelector(".playlist")
 const songTile = document.querySelector(".songTile")
 // albumPage vars
 const albPlayBtn = document.getElementById("albPlay");
+
+// // songIdentifiers
+// const DoPal = document.getElementById("DoPal")
+// const MainYahanHoon = document.getElementById("MainYahanHoon")
+// const TereLiye = document.getElementById("TereLiye")
+// const OneMoreTime = document.getElementById("OneMoreTime")
+// const Something = document.getElementById("Something")
+// const Haareya = document.getElementById("Haareya")
+// //index dictionary
+// song_dictionary = {
+//     "DoPal" : [0],
+//     "MainYahanHoon" : [1],
+//     "TereLiye" : [2],
+//     "OneMoreTime" : [3],
+//     "Something" : [4],
+//     "Haareya" : [5],
+// }
+
+
 //control variables
 let timer;
 let indexSong = 0;
