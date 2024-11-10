@@ -334,7 +334,7 @@ function playFromLibrary() {
             songIndex = (e.target.querySelector(".paraWithIndex").innerHTML) - 1;
             console.log(songIndex)
             loadSong(songIndex);
-            song.play()
+            noTogglePlay();
         }
     })
 }
