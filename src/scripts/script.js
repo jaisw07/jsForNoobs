@@ -135,4 +135,10 @@ function muteToggle() {
 // change Volume
 function changeVolume() {
     song.volume = (volBar.value) / 100;
+    if(volBar.value == 0) {
+        volIcon.innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+    }
+    else{
+        volIcon.innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+    }
 }
