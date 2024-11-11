@@ -18,8 +18,8 @@ const hamburger = document.querySelector("#hamburger")
 // albumPage vars
 const albPlayBtn = document.getElementById("albPlay");
 //library
-songPanel = document.querySelector(".songPanel")
-songTile = document.querySelector(".songTile")
+const songPanel = document.querySelector(".songPanel")
+const songTile = document.querySelector(".songTile")
 
 //control variables
 let timer;
