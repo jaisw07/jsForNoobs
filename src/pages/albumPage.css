@@ -204,7 +204,10 @@ input *{
 .liked{
     color: rgb(219, 93, 93) !important;
     font-weight: 900;
+    cursor: pointer;
 } 
+
+
 
 /* Player Section Styles*/
 .player {

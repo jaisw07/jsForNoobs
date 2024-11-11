@@ -103,11 +103,11 @@ body {
 .likebtn{
     color: rgb(0, 0, 0);
     font-weight: 100;
+    cursor: pointer;
 }
 
-
 .liked {
-    color: rgb(255, 0, 0) !important; 
+    color: rgb(219, 93, 93) !important; 
     font-weight: 900;
 }
 
