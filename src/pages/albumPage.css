@@ -202,7 +202,7 @@ input *{
 }
 
 .liked{
-    color: rgb(255, 0, 0);
+    color: rgb(219, 93, 93) !important;
     font-weight: 900;
 } 
 

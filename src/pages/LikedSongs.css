@@ -100,16 +100,15 @@ body {
     text-align: center;
 }
 
-.like-button{
-    color: red;
-    font-weight: 900;
+.likebtn{
+    color: rgb(0, 0, 0);
+    font-weight: 100;
 }
 
 
-.unliked {
-    color: black; 
-    border-color: black;
-    background-color: transparent;
+.liked {
+    color: rgb(255, 0, 0) !important; 
+    font-weight: 900;
 }
 
 
