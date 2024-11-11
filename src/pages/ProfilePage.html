@@ -37,38 +37,70 @@
 
     <link rel="stylesheet" href="ProfilePage.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="../modular_styles/profileStyles.css" media="print" onload="this.media='all'">
+    <script src="../scripts/script.js" defer></script>
+    <script src="../scripts/music.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/browserIcon.ico" />
 </head>
 
 <body>
     <nav class="navbar">
-        <a class="logo-container" id="logo-home"  href="HomePage.html">
-            <img src="../assets/Beat.it White Logo.png" alt="Beat.it Logo" width="60px" height="60px">
-        </a>
+        <div class="logo-container" id="logo-home">
+            <a href="HomePage.html">
+                <img src="../assets/Beat.it White Logo.png" alt="Beat.it Logo" width="60px" height="60px">
+            </a>
+        </div>
 
-        <div class="logout">
-            <a class="fa-solid fa-power-off" href="LoginPage.html"></a>
+        <form class="searchbar" action="SearchPage.html">
+            <img id="search-icon" src="../assets/home/Search.png" alt="Search Icon" width="32px" height="32px">
+            <hr id="line-separator">
+            <input class="font-inter" id="search-input" type="text" placeholder="Search by artists, songs or albums"
+                style="font-weight: 100;">
+        </form>
+
+        <div class="profile font-inter">
+            <label for="toggle-overlay">
+                <h1 id="username-letter" style="font-weight: 100;">S</h1>
+            </label>
+
+            <input type="checkbox" id="toggle-overlay" style="display: none;">
+
+            <div class="overlay">
+                <a href="ProfilePage.html">Profile</a>
+                <div>
+                    <hr style="width: 90%; border: 1px solid #3E3E3E">
+                </div>
+                <a href="LoginPage.html">Log Out</a>
+            </div>
         </div>
     </nav>
 
-    <main class="expanded-profile">
-        <div class="profile-pic">
-            <img src="../assets/Shrey Jaiswal Pic.png" alt="Profile Image" width="400px" height="400px">
+    <div class="row1">
+        <main class="expanded-profile">
+            <div class="profile-pic">
+                <img src="../assets/Shrey Jaiswal Pic.png" alt="Profile Image" width="400px" height="400px">
+            </div>
+            <div class="details-container font-syne">
+                <h1 class="username">Shrey Jaiswal</h1>
+                <h5 class="usermail">shrey.jaiswal.23cse@bmu.edu.in</h5>
+            </div>
+        </main>
+        <a href="../pages/LikedSongs.html">
+        <div class="likedsongs">
+            <img src="../assets/Liked Songs Logo.png">
+            
         </div>
-        <div class="details-container font-syne">
-            <h1 class="username">Shrey Jaiswal</h1>
-            <h5 class="usermail">shrey.jaiswal.23cse@bmu.edu.in</h5>
-        </div>
-    </main>
+        </a>
+    </div>
 
     <footer class="player">
         <div class="player-albuminfo">
             <div class="player-songcover">
-                <img src="../assets/home/Album Cover.png" alt="Player Album Cover" width="75px" height="75px">
+                <img id = "albumArt" src="../assets/home/Album Cover.png" alt="Player Album Cover" width="75px" height="75px">
             </div>
 
             <div class="player-songdetails font-inter" style="font-weight: 500;">
-                <div class="player-songname">Main Yahaan Hoon</div>
-                <div class="player-artistname">Artist</div>
+                <div id = "songName" class="player-songname">Main Yahaan Hoon</div>
+                <div id = "songArtist" class="player-artistname">Artist</div>
             </div>
 
             <div class="like-btn">
@@ -79,32 +111,37 @@
 
         <div class="playbar">
             <div class="progress-bar">
-                <div class="progress"></div>
+                <div id = "currentTime" class="currentTime font-inter">0:00</div>
+                <input type="range" id = "seekBar" class="seekBar" min = "0" max = "100" value = "0">
+                <div id = "totalTime" class="totalTime font-inter">2:40</div>
             </div>
+        
             <div class="controls">
-                <i class="fas fa-random shuffle"></i> <!-- Shuffle -->
-                <i class="fas fa-step-backward reverse"></i> <!-- Reverse -->
-                <i class="fas fa-play play" style="display: none; padding-right: 4px;"></i> <!-- Play -->
-                <i class="fas fa-pause pause" style="display: block; padding: 0 7px;"></i> <!-- Pause -->
-                <i class="fas fa-step-forward forward"></i> <!-- Forward -->
-                <i class="fa-solid fa-repeat repeat"></i> <!-- Repeat -->
+                <!-- Auto Play Next -->
+                <!-- <button class="controlBtns" id = "autoPlayToggle">
+                    <i class="fa-solid fa-toggle-off"></i>
+                </button>  -->
+                <button class="controlBtns" id="shuffleBtn"><i class="fa-solid fa-shuffle"></i></button>
+                <button class="controlBtns" id = "prevBtn"><i class="fas fa-step-backward reverse"></i></button> <!-- Reverse -->
+                <button class="controlBtns" id = "playBtn"><i class="fa-solid fa-play"></i></button> <!-- Play -->
+                <button class="controlBtns" id = "fwdBtn"><i class="fas fa-step-forward forward"></i></button> <!-- Forward -->
+                <button class="controlBtns" id = "repBtn"><i class="fa-solid fa-repeat repeat"></i></button> <!-- Repeat -->
             </div>
         </div>
 
         <div class="other-controls">
-            <div class="menu"> <!-- More Options -->
-                <i class="fas fa-ellipsis-v"></i>
-                <i class="fas fa-bars"></i>
-            </div>
+            <!-- <div class="menu">
+                <i id = "hamburger" class="fa-solid fa-bars"></i>
+            </div> -->
             <div class="volume">
-                <i class="fas fa-volume-mute" id="volume-mute" style="display: none;"></i> <!-- Mute -->
-                <i class="fas fa-volume-down" id="volume-one" style="display: none;"></i> <!-- Low Volume -->
-                <i class="fas fa-volume-up" id="volume-three" style="display: block;"></i> <!-- High Volume -->
-                <div class="progress-bar">
-                    <div class="progress"></div>
+                <button class="volIcon" id = "volIcon">
+                    <i class="fa-solid fa-volume-high"></i>
+                </button>
+                <div class="volume-bar">
+                    <input id = "volBar" type="range" class="slider" min = "0" max = "100" value = "0">
                 </div>
             </div>
-        </div>
+        </div>  
     </footer>
 
     <!-- <script>
